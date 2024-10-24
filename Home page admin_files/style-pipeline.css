@@ -1,0 +1,29 @@
+.left_cp_bar {
+    margin-top: 0;
+    box-shadow: none;
+    width: 230px;
+}
+
+.header_cp_bar {
+    padding-left: 0;
+}
+
+.logo_cp_bar {
+    padding-top: 9px;
+}
+
+.cp_left_nav_el a {
+    color: #232323;
+    font-family: "Public Sans", sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 33px;
+    height: 33px;
+    padding: 0 7px;
+    margin-bottom: 6px;
+}
+
+.cp_left_nav_el {
+    padding: 25px 10px;
+}
