@@ -1,6 +1,6 @@
 let timeoutID = null;
 
-function findMember(str) {
+function getMockData() {
     const response = [
         {
             "busines_name": "Text 1",
@@ -19,10 +19,30 @@ function findMember(str) {
     $('.dropdown-toggle').dropdown('toggle');
 }
 
+function getRealData(data) {
+    $.ajax({
+        url: "/",
+        cache: false,
+        dataType: "json",
+        type: "POST",
+        data: data,
+        success: function(result) {
+            const options = result.map(item => (`<a class="dropdown-item" target="_blank" href="${item.url}">${item.busines_name}</a>`))
+            $(".dropdown-menu").html(options.join(""));
+            $('.dropdown-toggle').dropdown('toggle');
+        },
+        error:function(error){
+            $(".dropdown-menu").html(`<span class="dropdown-item">${error[0].msg}</span>`);
+            $('.dropdown-toggle').dropdown('toggle');
+        }
+    });
+}
+
 $("#search").keyup(function(e) {
   clearTimeout(timeoutID);
-  const value = e.target.value
-  timeoutID = setTimeout(() => findMember(value), 500)
+//   const value = e.target.value;
+//   getRealData(value);
+  timeoutID = setTimeout(() => getMockData(), 500);
 });
 
 function getUrlParameter(sParam) {
@@ -63,12 +83,10 @@ $(".next-link").click((e) => {
 const submissionDate = getUrlParameter('submission-date');
 
 if(submissionDate === "up") {
-    console.log(submissionDate === "up");
     $(".submission-date").addClass("up");
 } else if(submissionDate === "down") {
     $(".submission-date").addClass("down");
 }
-
 
 $(".submission-date").click((e) => {
     $submissionDate = $(e.currentTarget);

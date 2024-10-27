@@ -377,3 +377,7 @@
 .dropdown-item:last-child {
     border-bottom: none;
 }
+
+span.dropdown-item {
+    text-align: center;
+}
