@@ -27,7 +27,7 @@ function getRealData(data) {
         type: "POST",
         data: data,
         success: function(result) {
-            const options = result.map(item => (`<a class="dropdown-item" target="_blank" href="${item.url}">${item.busines_name}</a>`))
+            const options = result.map(item => (`<a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="${item.url}">${item.busines_name}</a>`))
             $(".dropdown-menu").html(options.join(""));
             $('.dropdown-toggle').dropdown('toggle');
         },
@@ -38,12 +38,31 @@ function getRealData(data) {
     });
 }
 
-$("#search").keyup(function(e) {
-  clearTimeout(timeoutID);
+$("#search").keyup(function() {
+    if($(this).val().length > 0) {
+        $(this).parent().addClass("active");
+        $('body').addClass("active-search");
+    } else {
+        $(this).parent().removeClass("active");
+        $('body').removeClass("active-search");
+    }
+    clearTimeout(timeoutID);
 //   const value = e.target.value;
 //   getRealData(value);
-  timeoutID = setTimeout(() => getMockData(), 500);
+    timeoutID = setTimeout(() => getMockData(), 500);
 });
+
+$("#search").blur(function() {
+    $(this).parent().removeClass("active");
+    $('body').removeClass("active-search");
+});
+
+$(".cancel").click(function() {
+    $("#search").val("");
+    $(this).parent().removeClass("active");
+    $('body').removeClass("active-search");
+});
+
 
 function getUrlParameter(sParam) {
     const sPageURL = window.location.search.substring(1);

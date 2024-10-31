@@ -7,14 +7,6 @@
     gap: 0;
 }
 
-.cp_left_nav_el a span {
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    display: inline-block;
-    width: 135px;
-    overflow: hidden;
-}
-
 .cp_left_nav_el a > div {
     display: flex;
     align-items: center;
@@ -22,7 +14,10 @@
 
 .main-sidebar {
     overflow-y: auto;
+    overflow-x: hidden;
     height: calc(100% - 89px);
+    scrollbar-color: #E8E9E8 #fff;
+    scrollbar-width: thin;
 }
 
 .breadcrumb-small .breadcrumb-item.active {
@@ -70,9 +65,7 @@
 
 .pipeline-table th {
     color: #1B1B1B;
-    /* font-family: "Sofia Pro"; */
-    font-family: "Public Sans", sans-serif;
-
+    font-family: "Sofia Pro";
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
@@ -81,13 +74,12 @@
     height: 42px;
     padding-top: 0;
     padding-bottom: 0;
-    padding: 25px;
+    padding: 15px 25px;
     border-bottom: 1px solid #E8E9E8;
 }
 .pipeline-table td {
     color: #636864;
-    /* font-family: "Sofia Pro"; */
-    font-family: "Public Sans", sans-serif;
+    font-family: "Sofia Pro";
     font-size: 15px;
     font-style: normal;
     font-weight: 400;
@@ -96,7 +88,7 @@
     height: 42px;
     padding-top: 0;
     padding-bottom: 0;
-    padding: 25px;
+    padding: 10px 25px;
     border-bottom: 1px solid #E8E9E8;
 }
 
@@ -168,7 +160,7 @@
     background: #159C2A;
     color: #FFF;
     text-align: center;
-    font-family: "Public Sans", sans-serif;
+    font-family: "Sofia Pro";
     font-size: 16px;
     font-style: normal;
     font-weight: 600;
@@ -280,8 +272,7 @@
 
 .cp_user_header_lb {
     color: #071C0C;
-    /* font-family: "Sofia Pro"; */
-    font-family: "Public Sans", sans-serif;
+    font-family: "Sofia Pro";
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
@@ -290,8 +281,7 @@
 
 .user-name {
     color: #159C2A;
-    /* font-family: "Sofia Pro"; */
-    font-family: "Public Sans", sans-serif;
+    font-family: "Sofia Pro";
     font-size: 18px;
     font-style: normal;
     font-weight: 600;
@@ -347,6 +337,7 @@
     bottom: 15px;
     left: 0;
     right: 0;
+    top: 58px !important;
 }
 
 .dropdown-menu.show {
@@ -354,24 +345,31 @@
     width: 100%;
     margin: 0;
     padding: 0;
-    border-bottom: 1px solid #dee2e6;
+    border: none;
     border-radius: 0;
+    box-shadow: 0px 4px 10px 0px rgba(35, 35, 35, 0.25);
+    border-radius: 3px;
 }
 
 .dropdown-item {
+    color: #232323;
+    font-family: "Sofia Pro";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    text-transform: capitalize;
     height: 35px;
     line-height: 35px;
-    padding: 0 31px;
-    color: #808080;
-    font-family: "Public Sans", sans-serif;
-    font-size: 13px;
-    font-style: normal;
-    font-weight: 400;
-    border-bottom: none;
-    margin: 0;
-    outline: none;
-    box-shadow: none;
-    border-bottom: 1px solid #dee2e6;
+    padding: 0;
+    padding-left: 40px;
+    background-image: url("../assets/images/search.svg");
+    background-position: 11px center; 
+    background-repeat: no-repeat;
+}
+
+.dropdown-item:hover {
+    background-color: #f0f0f0;
 }
 
 .dropdown-item:last-child {
@@ -380,4 +378,100 @@
 
 span.dropdown-item {
     text-align: center;
+}
+
+.cp_left_nav_el .collapse-link {
+    padding-left: 31px;
+    color: #8B928C;
+}
+
+.cp_left_nav_el a {
+    padding-left: 14px;
+}
+
+.active-icon {
+    position: absolute;
+    width: 27px;
+    height: 27px;
+    border-radius: 3px;
+    background: #1BB21B;
+    top: 17px;
+    left: 5px;
+    display: none;
+}
+
+.active-icon svg {
+    top: 6px;
+    left: 6px;
+}
+
+.active #search {
+    z-index: 2;
+    background-color: #fff;
+    position: relative;
+}
+
+.active .active-icon{
+    z-index: 2;
+}
+
+.active #search,
+#search:focus {
+    padding-left: 40px;
+    color: #232323;
+    border: 1px solid #232323;
+    background-color: #fff;
+    font-family: "Sofia Pro";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.active .active-icon,
+#search:focus + .active-icon {
+    display: block;
+}
+
+.cancel {
+    border: none;
+    outline: none;
+    box-shadow: none;
+    position: absolute;
+    right: 8px;
+    top: 22px;
+    width: 16px;
+    height: 16px;
+    background: transparent;
+    display: none;
+}
+
+.cancel:hover svg {
+    opacity: 0.5;
+}
+
+.cancel svg {
+    top: 4px;
+    left: 4px;
+}
+
+.active .cancel {
+    display: block;
+    z-index: 2;
+}
+
+.active-search {
+    overflow: hidden;
+}
+
+.active-search .search-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.2)
 }
