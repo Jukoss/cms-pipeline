@@ -52,17 +52,22 @@ $("#search").keyup(function() {
     timeoutID = setTimeout(() => getMockData(), 500);
 });
 
-$("#search").blur(function() {
-    $(this).parent().removeClass("active");
-    $('body').removeClass("active-search");
-});
-
 $(".cancel").click(function() {
     $("#search").val("");
     $(this).parent().removeClass("active");
     $('body').removeClass("active-search");
 });
 
+
+$(document).on('click', '.search .dropdown-menu', function (e) {
+    e.stopPropagation();
+});
+
+$(document).on('click', '.active-search', function (e) {
+    $("#search").val("");
+    $(".search").removeClass("active");
+    $('body').removeClass("active-search");
+});
 
 function getUrlParameter(sParam) {
     const sPageURL = window.location.search.substring(1);
