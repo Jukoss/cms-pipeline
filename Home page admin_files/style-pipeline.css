@@ -475,3 +475,11 @@ span.dropdown-item {
     z-index: 1;
     background-color: rgba(0, 0, 0, 0.2)
 }
+
+.fixed-naw {
+    padding: 0;
+}
+
+.main-sidebar {
+    height: calc(100% - 106px);
+}
