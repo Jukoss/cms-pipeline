@@ -592,3 +592,9 @@ span.dropdown-item {
     font-weight: 600;
     line-height: normal;
 }
+
+.current-month {
+    display: inline-block;
+    width: 142px;
+    text-align: left;
+}
