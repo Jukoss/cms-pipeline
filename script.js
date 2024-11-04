@@ -125,3 +125,19 @@ $(".submission-date").click((e) => {
         $submissionDate.addClass("up");
     }
 });
+
+const d = new Date();
+const month = d.toLocaleString('default', { month: 'long' });
+const year = d.getFullYear();
+
+$(".current-month").html(`${month} ${year}`);
+
+
+$('.prev-month').click(function(){
+    const past = new Date(d.setMonth(d.getMonth() -1));
+});
+
+$('.next-month').click(function(){
+    const future = new Date(d.setMonth(d.getMonth() +1));
+    $(".current-month").html(future.toLocaleString('default', { month: 'long' })+' '+future.getFullYear());
+});
