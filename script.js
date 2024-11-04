@@ -135,6 +135,8 @@ $(".current-month").html(`${month} ${year}`);
 
 $('.prev-month').click(function(){
     const past = new Date(d.setMonth(d.getMonth() -1));
+    $(".current-month").html(past.toLocaleString('default', { month: 'long' })+' '+past.getFullYear());
+    // location.href = `?date=${past.getMonth()}-${past.getFullYear()}`;
 });
 
 $('.next-month').click(function(){
