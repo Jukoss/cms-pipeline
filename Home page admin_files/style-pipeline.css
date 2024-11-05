@@ -497,7 +497,6 @@ span.dropdown-item {
     font-weight: 400;
     line-height: normal;
     text-transform: capitalize;
-    margin-bottom: 19px;
 }
 
 .date-buttons {
@@ -533,7 +532,7 @@ span.dropdown-item {
 .info-wrp {
     border-radius: 4px;
     border: 1px solid rgba(196, 196, 196, 0.70);
-    width: 307px;
+    width: 100%;
     height: 100px;
     position: relative;
     background-color: #fff;
@@ -597,4 +596,11 @@ span.dropdown-item {
     display: inline-block;
     width: 142px;
     text-align: left;
+}
+
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
 }

@@ -127,7 +127,7 @@ $(".submission-date").click((e) => {
 });
 
 const d = new Date();
-const month = d.toLocaleString('default', { month: 'long' });
+const month = d.toLocaleString('en-GB', { month: 'long' });
 const year = d.getFullYear();
 
 $(".current-month").html(`${month} ${year}`);
@@ -135,11 +135,11 @@ $(".current-month").html(`${month} ${year}`);
 
 $('.prev-month').click(function(){
     const past = new Date(d.setMonth(d.getMonth() -1));
-    $(".current-month").html(past.toLocaleString('default', { month: 'long' })+' '+past.getFullYear());
+    $(".current-month").html(past.toLocaleString('en-GB', { month: 'long' })+' '+past.getFullYear());
     // location.href = `?date=${past.getMonth()}-${past.getFullYear()}`;
 });
 
 $('.next-month').click(function(){
     const future = new Date(d.setMonth(d.getMonth() +1));
-    $(".current-month").html(future.toLocaleString('default', { month: 'long' })+' '+future.getFullYear());
+    $(".current-month").html(future.toLocaleString('en-GB', { month: 'long' })+' '+future.getFullYear());
 });
