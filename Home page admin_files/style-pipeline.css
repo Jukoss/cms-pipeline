@@ -99,14 +99,16 @@
 .stage-label {
     color: #FFF;
     text-align: center;
-    font-family: "Public Sans", sans-serif;
+    font-family: "Sofia Pro";
     font-size: 15px;
     font-style: normal;
     font-weight: 500;
-    line-height: normal;
+    line-height: 24px;
     text-transform: uppercase;
-    padding: 2px 6px;
+    padding: 0 6px;
     border-radius: 3px;
+    height: 22px;
+    display: inline-block;
 }
 
 .stage-label.approved {
@@ -190,7 +192,7 @@
 .pagination .page-link {
     color: #8B928C;
     text-align: center;
-    font-family: "Public Sans", sans-serif;
+    font-family: "Sofia Pro";
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
@@ -242,7 +244,7 @@
     line-height: 35px;
     padding-left: 31px;
     color: #808080;
-    font-family: "Public Sans", sans-serif;
+    font-family: "Sofia Pro";
     font-size: 13px;
     font-style: normal;
     font-weight: 400;
@@ -603,4 +605,10 @@ span.dropdown-item {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 14px;
+}
+
+@media screen and (max-width: 1200px) {
+    .info-title {
+        font-size: 16px;
+    }
 }
